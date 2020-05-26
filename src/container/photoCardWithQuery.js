@@ -19,8 +19,8 @@ export const PhotoCardWithQuery = ({ id }) => (
   <Query query={query} variables={{ id }}>
     {
       ({ loading, error, data }) => {
-        if (loading) return 'loading...'
-        if (error) return 'Error to fetch data'
+        if (loading) return 'loading...'            /* AGREGAR SPINNER COMO COMPONENTE Y PONERLO AQUI */
+        if (error) return 'Error to fetch data'     /* CAMBIAR LA TECNICA DE HOC POR RENDER PROPS PARA EL LIST OF PHOTOCARDS */
         const { photo = {} } = data
         return <PhotoCard {...photo} />
       }
