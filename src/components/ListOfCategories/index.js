@@ -39,11 +39,11 @@ export const ListOfCategories = () => {
       {
         loading
           ? <Item key='loading'><Category /></Item>
-          : categories.map(category => <Item key={category.id}><Category {...category} /></Item>) /* Con el ...category (operador rest ...) le pasas toda las props de category */
+          : categories.map(category => <Item key={category.id}><Category {...category} path={`/pet/${category.id}`} /></Item>) /* Con el ...category (operador rest ...) le pasas toda las props de category */
       }
     </List>
   )
-
+  console.log(categories)
   return (
     <>
       {renderList()}

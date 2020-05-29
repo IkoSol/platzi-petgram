@@ -10,8 +10,8 @@ const renderProps = ({ loading, error, data }) => {
   return <ListOfPhotoCardsComponent {...data} />
 }
 
-export const ListOfPhotoCards = () => (
-  <Query query={GET_PHOTOS}>
+export const ListOfPhotoCards = ({ categoryId }) => (
+  <Query query={GET_PHOTOS} variables={{ categoryId }}>
     {renderProps}
   </Query>
 )
