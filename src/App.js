@@ -16,10 +16,12 @@ export const App = () => {
       {
         detailId
           ? <PhotoCardWithQuery id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId={2} />
-          </>
+          : (
+            <>
+              <ListOfCategories />
+              <ListOfPhotoCards categoryId={2} />
+            </>
+          )
       }
     </div>
   )
