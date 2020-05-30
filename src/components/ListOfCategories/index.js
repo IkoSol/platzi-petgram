@@ -43,7 +43,7 @@ export const ListOfCategories = () => {
       }
     </List>
   )
-  console.log(categories)
+
   return (
     <>
       {renderList()}

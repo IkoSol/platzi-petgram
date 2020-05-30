@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { fadeIn } from '../../styles/animation'
 
+export const Article = styled.article`
+  min-height: 200px;
+`
+
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -9,11 +13,6 @@ export const ImgWrapper = styled.div`
   padding: 56.25% 0 0 0; /* Esto es para empujar el contenido de la imágen hacia arriba */
   position: relative;
   width: 100%;
-`
-
-export const Article = styled.article`
-  min-height: 200px;
-  margin-bottom: 10px;
 `
 
 export const Img = styled.img`
