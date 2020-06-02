@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo'
 import { gql } from 'apollo-boost'
 
 const REGISTER = gql`
-  mutation singup($input: UserCredentials!){
+  mutation signup($input: UserCredentials!){
     signup (input: $input)
   }
 `

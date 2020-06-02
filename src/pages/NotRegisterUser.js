@@ -3,6 +3,7 @@ import Context from '../Context'
 import { UserForm } from '../components/UserForm'
 import { Container } from '../styles/NotRegisterUser'
 import { RegisterMutation } from '../container/RegisterMutation'
+import { LoginMutation } from '../container/LoginMutation'
 
 export const NotRegisterUser = () => (
   <Context.Consumer>
@@ -13,7 +14,7 @@ export const NotRegisterUser = () => (
             <Container>
               <RegisterMutation>
                 {
-                  (register, { data, loading, error }) => {
+                  (register, { loading, error }) => {
                     const onSubmit = ({ email, password }) => {
                       const input = { email, password }
                       const variables = { input }
@@ -22,11 +23,27 @@ export const NotRegisterUser = () => (
 
                     const errorMsg = error && 'User already registered'
 
-                    return <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Registrarse' />
+                    return <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Register' />
                   }
                 }
               </RegisterMutation>
-              <UserForm onSubmit={activateAuth} title='Iniciar Sesión' />
+
+              <LoginMutation>
+                {
+                  (login, { error, loading }) => {
+                    const onSubmit = ({ email, password }) => {
+                      const input = { email, password }
+                      const variables = { input }
+                      login({ variables }).then(activateAuth)
+                    }
+
+                    const errorMsg = error && 'Wrong password or user does not exist'
+
+                    return <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Login' />
+                  }
+                }
+              </LoginMutation>
+
             </Container>
           </>
         )
