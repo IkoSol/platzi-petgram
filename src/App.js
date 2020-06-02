@@ -8,10 +8,7 @@ import { NavBar } from './components/NavBar'
 import { Favs } from './pages/Favs'
 import { User } from './pages/User'
 import { NotRegisterUser } from './pages/NotRegisterUser'
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: true })
-}
+import Context from './Context'
 
 export const App = () => {
   return (
@@ -23,7 +20,7 @@ export const App = () => {
         <Home path='/pet/:categoryId' />
         <Detail path='/detail/:detailId' />
       </Router>
-      <UserLogged>
+      <Context.Consumer>
         {/* Tenemos un children con una función que recibe por parámetro si el usuario está autentificado */
           ({ isAuth }) =>
             isAuth
@@ -40,7 +37,7 @@ export const App = () => {
                 </Router>
               )
         }
-      </UserLogged>
+      </Context.Consumer>
       <NavBar />
     </div>
   )
