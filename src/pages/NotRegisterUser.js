@@ -2,6 +2,7 @@ import React from 'react'
 import Context from '../Context'
 import { UserForm } from '../components/UserForm'
 import { Container } from '../styles/NotRegisterUser'
+import { RegisterMutation } from '../container/RegisterMutation'
 
 export const NotRegisterUser = () => (
   <Context.Consumer>
@@ -10,7 +11,18 @@ export const NotRegisterUser = () => (
         return (
           <>
             <Container>
-              <UserForm onSubmit={activateAuth} title='Registrarse' />
+              <RegisterMutation>
+                {
+                  (register) => {
+                    const onSubmit = ({ email, password }) => {
+                      const input = { email, password }
+                      const variables = { input }
+                      register({ variables }).then(activateAuth)
+                    }
+                    return <UserForm onSubmit={onSubmit} title='Registrarse' />
+                  }
+                }
+              </RegisterMutation>
               <UserForm onSubmit={activateAuth} title='Iniciar Sesión' />
             </Container>
           </>
