@@ -4,7 +4,7 @@ import { Query } from 'react-apollo' /* Query es un componente especial que nos 
 import { GET_SINGLE_PHOTO } from '../renderProps'
 
 const renderProps = ({ loading, error, data }) => {
-  if (loading) return <PhotoCard loading={loading} />
+  if (loading || !data) return <PhotoCard loading={loading} />
   if (error) return <p>Error to fetch data.</p>
   const { photo = {} } = data
   return <PhotoCard loading={loading} {...photo} />
