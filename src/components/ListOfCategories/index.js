@@ -20,7 +20,7 @@ function useCategoriesData () {
   return { categories, loading } /* De devuelve la propiedad categories como un json después de hacer fetch de la categorías */
 }
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const { categories, loading } = useCategoriesData()
   const [showFixed, setShowFixed] = useState(false)
 
@@ -51,3 +51,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)
