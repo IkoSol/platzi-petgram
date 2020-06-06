@@ -6,7 +6,7 @@ import { RegisterMutation } from '../container/RegisterMutation'
 import { LoginMutation } from '../container/LoginMutation'
 import { Layout } from '../components/Layout'
 
-export const NotRegisterUser = () => {
+export default () => {
   const { activateAuth } = useContext(Context) /* activateAuth se obtiene del Context.js de la const value y se inyecta para activar el isAuth sin necesidad de usar las props */
 
   return (
