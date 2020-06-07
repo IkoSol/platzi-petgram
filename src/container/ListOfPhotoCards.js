@@ -5,8 +5,9 @@ import { GET_PHOTOS } from '../renderProps'
 import { PhotoCard } from '../components/PhotoCard'
 
 const renderProps = ({ loading, error, data }) => {
-  if (loading) return <PhotoCard loading={loading} />
+  if (loading || !data) return <PhotoCard loading={loading} />
   if (error) return 'Error to fetch data.'
+  console.log('DATA: ', data)
   return <ListOfPhotoCardsComponent {...data} />
 }
 
